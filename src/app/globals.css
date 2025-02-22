@@ -102,10 +102,7 @@ body {
   height: 50px;
   animation: floatAnimation 8s ease-in-out infinite alternate;
   opacity: 0.8;
-}
-
-.floating-icon:hover {
-  transform: translateX(10px);
+  transition: transform 0.3s ease;
 }
 
 @keyframes floatAnimation {
