@@ -1,13 +1,13 @@
 "use client";
 import { useState, useEffect, ChangeEvent, FormEvent } from "react";
 import Image from "next/image";
-import { SwiperSlide, Swiper } from "swiper/react";
-import "swiper/css";
+{/*import { SwiperSlide, Swiper } from "swiper/react";
+import "swiper/css"; */}
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { faEnvelope as fasEnvelope } from '@fortawesome/free-solid-svg-icons';
 import Link from "next/link";
-import { easeInOut, motion } from "framer-motion";
+import { motion } from "framer-motion";
 
 const Home = () => {
   const [formData, setFormData] = useState({
@@ -42,7 +42,7 @@ const Home = () => {
       animationDelay: `${Math.random() * 5}s`,
     }));
     setIcons(generatedIcons);
-  }, []);
+  }, [technologies]);
 
   useEffect(() => {
     const canvas = document.getElementById("starCanvas") as HTMLCanvasElement;
