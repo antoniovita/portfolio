@@ -69,14 +69,6 @@
 
 
 
-@layer base {
-  * {
-    @apply border-border outline-ring/50;
-  }
-  body {
-    @apply bg-background text-foreground;
-  }
-}
 
 body {
   margin: 0;
@@ -114,62 +106,5 @@ body {
   }
   100% {
     transform: translateX(0) translateY(0);
-  }
-}
-
-.stars-background {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  z-index: -1;
-}
-
-/* Estrelas fixas - piscando */
-.star-fixed {
-  position: absolute;
-  width: 3px;
-  height: 3px;
-  background-color:rgb(206, 206, 206);
-  border-radius: 50%;
-  opacity: 0.8;
-  animation: blink 1.5s infinite alternate;
-}
-
-/* Estrelas móveis */
-.star-moving {
-  position: absolute;
-  width: 3px;
-  height: 3px;
-  background-color:rgb(206, 206, 206);
-  border-radius: 50%;
-  animation: moveAndBlink 10s linear infinite, blink 1.5s infinite alternate;
-}
-
-/* Animação para piscar as estrelas */
-@keyframes blink {
-  0% {
-    opacity: 0.4;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-
-/* Animação para movimento das estrelas */
-@keyframes moveAndBlink {
-  0% {
-    left: 0%;
-    top: 100%;
-  }
-  50% {
-    left: 50%;
-    top: 50%;
-  }
-  100% {
-    left: 100%;
-    top: 0%;
   }
 }

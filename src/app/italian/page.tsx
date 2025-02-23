@@ -99,8 +99,8 @@ const Home = () => {
       
       <div className="relative">
         <motion.div initial={{ opacity:0}} whileInView={{ opacity: 1}} transition={{ duration: 3, ease: "easeOut" }} viewport={{ amount: 0.2 }} className="relative flex flex-col items-center justify-center z-30 text-white h-screen px-4">
-            <h1 className="bg-black text-4xl md:text-5xl font-bold mb-3 text-center">Hello, I'm <span className="text-yellow-300">Antonio Vita</span></h1>
-            <p className="bg-black text-md font-thin text-center"> Computer Science Student at PUC-Rio & Full-Stack Developer</p>
+            <h1 className="bg-black text-4xl md:text-5xl font-bold mb-3 text-center">Ciao, me chiamo <span className="text-yellow-300">Antonio Vita</span></h1>
+            <p className="bg-black text-md font-thin text-center"> Studente di Informatica presso PUC-Rio & Sviluppatore Full-Stack</p>
             <div className="z-40 p-5 flex flex-wrap gap-4 justify-center">
               <Link href={"/portuguese"}> <Image src={"/images/BR.png"} width={40} height={40} alt={"Portuguse"}></Image></Link>
               <Link href={"/french"}> <Image src={"/images/FR.png"} width={40} height={40} alt={"French"}></Image></Link>
@@ -110,7 +110,7 @@ const Home = () => {
             </div>
             
             <a href="#about" onMouseEnter={() => setHovered(true)} onMouseLeave={() => setHovered(false)} className="bg-black duration-300 all-transition hover:text-white flex flex-col justify-center items-center text-gray-200">
-              <p className="font-thin"> View More </p>
+              <p className="font-thin"> Vedere di più </p>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="18"
@@ -131,7 +131,7 @@ const Home = () => {
 
       <motion.div initial={{ opacity:0}} whileInView={{ opacity: 1}} transition={{ duration:3, ease: "easeOut" }} viewport={{ amount: 0.2 }} className="px-4">
           <div className="flex flex-col justify-center items-center h-screen relative"> 
-            <h1 className="text-3xl md:text-4xl bg-black z-30 mb-[5px] text-center"> What about the <span className="text-yellow-300">technologies</span> I know? </h1>
+            <h1 className="text-3xl md:text-4xl bg-black z-30 mb-[5px] text-center"> Quali <span className="text-yellow-300">tecnologie</span> utilizzo? </h1>
             <p className="bg-black text-sm font-thin z-30 text-center"> TypeScript | React | Next.js | Node.js | JavaScript | Tailwindcss | MySQL |  </p>
             <p className="bg-black text-sm font-thin z-30 text-center"> PostgreSQL | MongoDB | Git | Python | Docker </p>
             <div className="absolute inset-0 floating-icons z-0">
@@ -161,10 +161,10 @@ const Home = () => {
 
           <motion.div className="mt-8 sm:mt-4 p-4 md:p-20 flex flex-col justify-center space-y-4 max-w-[700px]" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 3, ease: "easeOut" }} viewport={{ amount: 0.2 }}>
             <h1 className="text-3xl md:text-4xl font-semibold text-white text-center md:text-left">
-              What about <span className="text-yellow-300">me</span>?
+            Cosa dire di <span className="text-yellow-300">me</span>?
             </h1>
             <p className="text-md md:text-lg font-light text-gray-300 text-center md:text-left">
-              I'm a Computer Science student at PUC-Rio with a merit scholarship. I have 1 year of experience in web development, mainly with Typescript, React, Node.js, and databases like MongoDB and PostgreSQL. I’m also interested in blockchain development and always looking to learn more.
+            Sono uno studente di Informatica alla PUC-Rio con una borsa di merito. Ho 1 anno di esperienza nello sviluppo web, principalmente con Typescript, React, Node.js e database come MongoDB e PostgreSQL. Sono anche interessato allo sviluppo di blockchain e sono sempre alla ricerca di nuove opportunità di apprendimento.
             </p>
 
             <div className="flex flex-wrap gap-8 justify-center md:justify-start">
@@ -184,10 +184,10 @@ const Home = () => {
 
       <motion.div initial={{ opacity:0}} whileInView={{ opacity: 1}} transition={{ duration: 3, ease: "easeOut" }} viewport={{ amount: 0.2 }} className="h-screen justify-center flex flex-col items-center z-20 px-4">
         <div className="bg-transparent flex flex-col items-center border border-gray-700 rounded-lg p-4 md:p-[45px] w-full sm:w-[90%] md:w-[70%] lg:w-[50%] xl:w-[40%]">
-          <h2 className="text-3xl md:text-4xl font-semibold mb-4 text-white text-center">Contact me!</h2>
+          <h2 className="text-3xl md:text-4xl font-semibold mb-4 text-white text-center">Mettiti in contatto!</h2>
           <form onSubmit={handleSubmit} className="w-full">
             <div className="mb-4">
-              <label className="block text-md text-gray-300">Name</label>
+              <label className="block text-md text-gray-300">Nome</label>
               <input
                 type="text"
                 name="name"
@@ -211,14 +211,14 @@ const Home = () => {
             <div className="mb-4">
               <textarea
                 className="mt-2 p-3 w-full border border-gray-600 rounded-md bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
-                placeholder="Your message..."
+                placeholder="Tuo messaggio..."
               ></textarea>
             </div>
             <button
               type="submit"
               className="w-full bg-gray-700 text-white p-3 rounded-md mt-4 hover:bg-gray-600 transition-all duration-300"
             >
-              Send
+              Inviare
             </button>
           </form>
         </div>
