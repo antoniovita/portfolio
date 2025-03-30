@@ -52,18 +52,56 @@ const Home = () => {
     "/images/git-plain-wordmark.png",
     "/images/github-original.png",
     "/images/docker-plain.png",
+    "/images/java.png"
   ], []);
 
   useEffect(() => {
-    const generatedIcons = technologies.map((tech) => ({
-      src: tech,
-      top: Math.random() * 100,
-      left: Math.random() * 100,
-      animationDelay: `${Math.random() * 5}s`,
-    }));
+    const generatedIcons: { src: string; top: number; left: number; animationDelay: string }[] = [];
+    const minDistance = 8; // distância mínima entre ícones (%)
+    const centerZone = { min: 40, max: 60 }; // evitar o centro da tela
+  
+    const isTooClose = (x1: number, y1: number, x2: number, y2: number) => {
+      const dx = x1 - x2;
+      const dy = y1 - y2;
+      return Math.sqrt(dx * dx + dy * dy) < minDistance;
+    };
+  
+    const isInCenter = (top: number, left: number) => {
+      return (
+        top > centerZone.min && top < centerZone.max &&
+        left > centerZone.min && left < centerZone.max
+      );
+    };
+  
+    for (let tech of technologies) {
+      let top = 0;
+      let left = 0;
+      let attempts = 0;
+      let validPosition = false;
+  
+      while (!validPosition && attempts < 100) {
+        top = Math.random() * 100;
+        left = Math.random() * 100;
+        attempts++;
+  
+        const notInCenter = !isInCenter(top, left);
+        const notTooClose = generatedIcons.every(icon => !isTooClose(icon.left, icon.top, left, top));
+  
+        if (notInCenter && notTooClose) {
+          validPosition = true;
+        }
+      }
+  
+      generatedIcons.push({
+        src: tech,
+        top,
+        left,
+        animationDelay: `${Math.random() * 5}s`,
+      });
+    }
+  
     setIcons(generatedIcons);
   }, [technologies]);
-
   useEffect(() => {
     const canvas = document.getElementById("starCanvas") as HTMLCanvasElement;
     const ctx = canvas?.getContext("2d");

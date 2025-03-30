@@ -7,6 +7,7 @@ import { faEnvelope as fasEnvelope } from '@fortawesome/free-solid-svg-icons';
 import Link from "next/link";
 import { motion } from "framer-motion";
 import emailjs from '@emailjs/browser';
+import MyWork from "@/components/mywork";
 
 const Home = () => {
   const [email, setEmail] = useState('');
@@ -52,18 +53,57 @@ const Home = () => {
     "/images/git-plain-wordmark.png",
     "/images/github-original.png",
     "/images/docker-plain.png",
+    "/images/java.png"
   ], []);
 
   useEffect(() => {
-    const generatedIcons = technologies.map((tech) => ({
-      src: tech,
-      top: Math.random() * 100,
-      left: Math.random() * 100,
-      animationDelay: `${Math.random() * 5}s`,
-    }));
+    const generatedIcons: { src: string; top: number; left: number; animationDelay: string }[] = [];
+    const minDistance = 8; // distância mínima entre ícones (%)
+    const centerZone = { min: 40, max: 60 }; // evitar o centro da tela
+  
+    const isTooClose = (x1: number, y1: number, x2: number, y2: number) => {
+      const dx = x1 - x2;
+      const dy = y1 - y2;
+      return Math.sqrt(dx * dx + dy * dy) < minDistance;
+    };
+  
+    const isInCenter = (top: number, left: number) => {
+      return (
+        top > centerZone.min && top < centerZone.max &&
+        left > centerZone.min && left < centerZone.max
+      );
+    };
+  
+    for (let tech of technologies) {
+      let top = 0;
+      let left = 0;
+      let attempts = 0;
+      let validPosition = false;
+  
+      while (!validPosition && attempts < 100) {
+        top = Math.random() * 100;
+        left = Math.random() * 100;
+        attempts++;
+  
+        const notInCenter = !isInCenter(top, left);
+        const notTooClose = generatedIcons.every(icon => !isTooClose(icon.left, icon.top, left, top));
+  
+        if (notInCenter && notTooClose) {
+          validPosition = true;
+        }
+      }
+  
+      generatedIcons.push({
+        src: tech,
+        top,
+        left,
+        animationDelay: `${Math.random() * 5}s`,
+      });
+    }
+  
     setIcons(generatedIcons);
   }, [technologies]);
-
+  
   useEffect(() => {
     const canvas = document.getElementById("starCanvas") as HTMLCanvasElement;
     const ctx = canvas?.getContext("2d");
@@ -140,27 +180,33 @@ const Home = () => {
 
       <motion.div initial={{ opacity:0 }} whileInView={{ opacity: 1 }} transition={{ duration:3, ease: "easeOut" }} viewport={{ amount: 0.2 }} className="px-4">
           <div className="flex flex-col justify-center items-center h-screen relative"> 
-            <h1 className="text-3xl md:text-4xl bg-black z-30 mb-[5px] text-center"> What about the <span className="text-yellow-300">technologies</span> I know? </h1>
-            <p className="bg-black text-sm font-thin z-30 text-center"> TypeScript | React | Next.js | Node.js | JavaScript | Tailwindcss | MySQL | </p>
-            <p className="bg-black text-sm font-thin z-30 text-center"> PostgreSQL | MongoDB | Git | Python | Docker </p>
-            <div className="absolute inset-0 floating-icons z-0">
-              {icons.map((icon, index) => (
-                <Image
-                  key={index}
-                  src={icon.src}
-                  alt="Technology Icon"
-                  width={50}
-                  height={50}
-                  className="floating-icon"
-                  style={{
-                    top: `${icon.top}%`,
-                    left: `${icon.left}%`,
-                    animationDelay: icon.animationDelay,
-                  }}
-                />
-              ))}
-            </div>
+              <h1 className="text-3xl md:text-4xl z-30 mb-[5px] text-center bg-black"> What about the <span className="text-yellow-300">technologies</span> I know? </h1>
+              <p className="text-sm font-thin z-30 text-center bg-black"> TypeScript | React | Next.js | Node.js | JavaScript | Tailwindcss | MySQL | </p>
+              <p className="text-sm font-thin z-30 text-center bg-black"> PostgreSQL | MongoDB | Git | Python | Docker </p>
+              <div className="absolute inset-0 floating-icons z-0">
+                {icons.map((icon, index) => (
+                  <Image
+                    key={index}
+                    src={icon.src}
+                    alt="Technology Icon"
+                    width={50}
+                    height={50}
+                    className="floating-icon"
+                    style={{
+                      top: `${icon.top}%`,
+                      left: `${icon.left}%`,
+                      animationDelay: icon.animationDelay,
+                    }}
+                  />
+                ))}
+              </div>
           </div>
+      </motion.div>
+
+      <motion.div initial={{ opacity:0 }} whileInView={{ opacity: 1 }} transition={{ duration:3, ease: "easeOut" }} viewport={{ amount: 0.2 }} className="px-4">
+      <div className="flex flex-col justify-center items-center h-screen relative"> 
+        <MyWork></MyWork>
+        </div>
       </motion.div>
 
       <div id="about" className="flex flex-col xl:flex-row sm:flex-col items-center justify-center gap-8 md:gap-20 z-30 h-screen px-4">
