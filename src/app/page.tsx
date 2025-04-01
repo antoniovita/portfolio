@@ -238,22 +238,33 @@ const Home = () => {
         </div>
       </motion.div>
 
-      <div id="about" className="flex flex-col xl:flex-row sm:flex-col items-center justify-center gap-8 md:gap-20 z-30 h-screen px-4">
-        <motion.div initial={{ opacity:0 }} whileInView={{ opacity: 1 }} transition={{ duration: 3, ease: "easeOut" }} viewport={{ amount: 0.2 }}>
-          <Image width={300} height={300} className="border-gray-900 border-3 rounded-full" src={"/images/carteirinha.jpg"} alt={""}/>
-        </motion.div>
-        <motion.div className=" sm:mt-4 p-4 md:p-20 flex flex-col justify-center space-y-4 max-w-[700px]" initial={{ opacity:0 }} whileInView={{ opacity: 1 }} transition={{ duration: 3, ease: "easeOut" }} viewport={{ amount: 0.2 }}>
-          <h1 className="text-3xl md:text-4xl font-semibold text-white text-center md:text-left">What about <span className="text-yellow-300">me</span>?</h1>
-          <p className="text-md md:text-lg font-light text-gray-300 text-center md:text-left">I&apos;m a Computer Science student at PUC-Rio with a merit scholarship. I have 1 year of experience in web development, mainly with Typescript, React, Node.js, and databases like MongoDB and PostgreSQL. I&apos;m also interested in blockchain development and always looking to learn more.</p>
-          <div className="flex flex-wrap gap-8 justify-center md:justify-start">
-            <Link className='mt-8' href={"https://github.com/antoniovita"}><FontAwesomeIcon icon={faGithub} size="3x" /></Link>
-            <Link className='mt-8' href={"https://linkedin.com/in/antonio-vita-6177922b7"}><FontAwesomeIcon icon={faLinkedin} size="3x" /></Link>
-            <Link className='mt-8' href={""}><FontAwesomeIcon icon={fasEnvelope} size="3x" /></Link>
-          </div>
-        </motion.div>
-      </div>
+      <div id="about" className="flex flex-col xl:flex-row sm:flex-col items-center justify-center gap-6 md:gap-20 z-30 sm:h-auto md:h-screen px-6 sm:px-8 md:px-20">
+  <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 3, ease: "easeOut" }} viewport={{ amount: 0.2 }}>
+    <Image width={250} height={250} className="border-gray-900 border-3 rounded-full sm:w-[280px] sm:h-[280px] md:w-[300px] md:h-[300px]" src={"/images/carteirinha.jpg"} alt={""} />
+  </motion.div>
+  <motion.div className="sm:mt-4 p-4 sm:p-10 md:p-20 flex flex-col justify-center space-y-4 max-w-[700px]" initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 3, ease: "easeOut" }} viewport={{ amount: 0.2 }}>
+    <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold text-white text-center md:text-left">
+      What about <span className="text-yellow-300">me</span>?
+    </h1>
+    <p className="text-sm sm:text-md md:text-lg font-light text-gray-300 text-center md:text-left">
+      I&apos;m a Computer Science student at PUC-Rio with a merit scholarship. I have 1 year of experience in web development, mainly with Typescript, React, Node.js, and databases like MongoDB and PostgreSQL. I&apos;m also interested in blockchain development and always looking to learn more.
+    </p>
+    <div className="flex flex-wrap gap-6 justify-center md:justify-start">
+      <Link className="mt-6" href={"https://github.com/antoniovita"}>
+        <FontAwesomeIcon icon={faGithub} size="3x" />
+      </Link>
+      <Link className="mt-6" href={"https://linkedin.com/in/antonio-vita-6177922b7"}>
+        <FontAwesomeIcon icon={faLinkedin} size="3x" />
+      </Link>
+      <Link className="mt-6" href={""}>
+        <FontAwesomeIcon icon={fasEnvelope} size="3x" />
+      </Link>
+    </div>
+  </motion.div>
+</div>
 
-      <motion.div initial={{ opacity:0 }} whileInView={{ opacity: 1 }} transition={{ duration: 3, ease: "easeOut" }} viewport={{ amount: 0.2 }} className="h-screen justify-center flex flex-col items-center z-20 px-4">
+
+      <motion.div initial={{ opacity:0 }} whileInView={{ opacity: 1 }} transition={{ duration: 3, ease: "easeOut" }} viewport={{ amount: 0.2 }} className="h-screen justify-center flex flex-col items-center z-20 px-8">
         <div className="bg-transparent flex flex-col items-center border border-gray-700 rounded-lg p-4 md:p-[45px] w-full sm:w-[90%] md:w-[70%] lg:w-[50%] xl:w-[40%]">
           <h2 className="text-3xl md:text-4xl font-semibold mb-4 text-white text-center">Contact me!</h2>
           <form onSubmit={sendEmail} className="w-full">
