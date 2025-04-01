@@ -3,7 +3,7 @@ import { useState, useEffect, ChangeEvent, FormEvent, useMemo } from "react";
 import Image from "next/image";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons';
-import { faEnvelope as fasEnvelope } from '@fortawesome/free-solid-svg-icons';
+import { faEnvelope as fasEnvelope, faXmark } from '@fortawesome/free-solid-svg-icons';
 import Link from "next/link";
 import { motion } from "framer-motion";
 import emailjs from '@emailjs/browser';
@@ -13,6 +13,7 @@ const Home = () => {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [message, setMessage] = useState('');
+  const [showStack, setShowStack] = useState(false);
 
   const sendEmail = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -178,30 +179,58 @@ const Home = () => {
         </motion.div>
       </div>
 
-      <motion.div initial={{ opacity:0 }} whileInView={{ opacity: 1 }} transition={{ duration:3, ease: "easeOut" }} viewport={{ amount: 0.2 }} className="px-4">
-          <div className="flex flex-col justify-center items-center h-screen relative"> 
-              <h1 className="text-3xl md:text-4xl z-30 mb-[5px] text-center bg-black"> What about the <span className="text-yellow-300">technologies</span> I know? </h1>
-              <p className="text-sm font-thin z-30 text-center bg-black"> TypeScript | React | Next.js | Node.js | JavaScript | Tailwindcss | MySQL | </p>
-              <p className="text-sm font-thin z-30 text-center bg-black"> PostgreSQL | MongoDB | Git | Python | Docker </p>
-              <div className="absolute inset-0 floating-icons z-0">
-                {icons.map((icon, index) => (
-                  <Image
-                    key={index}
-                    src={icon.src}
-                    alt="Technology Icon"
-                    width={50}
-                    height={50}
-                    className="floating-icon"
-                    style={{
-                      top: `${icon.top}%`,
-                      left: `${icon.left}%`,
-                      animationDelay: icon.animationDelay,
-                    }}
-                  />
-                ))}
-              </div>
-          </div>
-      </motion.div>
+      <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 3, ease: "easeOut" }} viewport={{ amount: 0.2 }} className="px-4">
+  <div className="flex flex-col justify-center items-center h-screen relative"> 
+    <h1 className="text-3xl md:text-4xl z-30 mb-[5px] text-center bg-black rounded-full border border-gray-950 px-5 py-3"> What about my <span className="text-yellow-300"> stack </span> ?</h1>
+    <button onClick={() => setShowStack(true)} className="bg-black border border-yellow-400 text-yellow-400 rounded-full px-3 py-2 mt-5 font-normal hover:bg-yellow-400 hover:text-black all-transition duration-300"> View the list </button>
+    <div className="absolute inset-0 floating-icons z-0">
+      {icons.map((icon, index) => (
+        <Image
+          key={index}
+          src={icon.src}
+          alt="Technology Icon"
+          width={50}
+          height={50}
+          className="floating-icon"
+          style={{
+            top: `${icon.top}%`,
+            left: `${icon.left}%`,
+            animationDelay: icon.animationDelay,
+            width: '3vh',
+            height: '3vh'
+          }}
+        />
+      ))}
+    </div>
+  </div>
+
+  {showStack && (
+  <div className="fixed inset-0 flex justify-center items-center z-40">
+    <div className="bg-black w-[500px] h-[500px] relative flex flex-col justify-center items-center text-white p-5 rounded-lg shadow-lg border-gray-950 border">
+      <div className=" items-center flex flex-col gap-3 justify-start w-full overflow-y-scroll max-h-[350px] scrollbar-hide">
+        {technologies.map((tech, index) => {
+          const techNames = [
+            "CSS3", "Figma", "JavaScript", "Python", "TypeScript",
+            "PostgreSQL", "React", "Node.js", "MongoDB", "MySQL",
+            "Git", "GitHub", "Docker", "Java"
+          ];
+          
+          return (
+            <div key={index} className="bg-gray-950 px-4 py-2 rounded-full flex flex-row gap-3 items-center w-[90%]">
+              <Image src={tech} alt={techNames[index]} width={50} height={50} className="w-6 h-6"/>
+              <h1>{techNames[index]}</h1>
+            </div>
+          );
+        })}
+      </div>
+      <button onClick={() => setShowStack(false)} className=" text-black bg-yellow-400 w-[90%] py-4 rounded-lg mt-5">
+        Go Back
+      </button>
+    </div>
+  </div>
+)}
+</motion.div>
+
 
       <motion.div initial={{ opacity:0 }} whileInView={{ opacity: 1 }} transition={{ duration:3, ease: "easeOut" }} viewport={{ amount: 0.2 }} className="px-4">
       <div className="flex flex-col justify-center items-center h-screen relative"> 
@@ -213,7 +242,7 @@ const Home = () => {
         <motion.div initial={{ opacity:0 }} whileInView={{ opacity: 1 }} transition={{ duration: 3, ease: "easeOut" }} viewport={{ amount: 0.2 }}>
           <Image width={300} height={300} className="border-gray-900 border-3 rounded-full" src={"/images/carteirinha.jpg"} alt={""}/>
         </motion.div>
-        <motion.div className="mt-8 sm:mt-4 p-4 md:p-20 flex flex-col justify-center space-y-4 max-w-[700px]" initial={{ opacity:0 }} whileInView={{ opacity: 1 }} transition={{ duration: 3, ease: "easeOut" }} viewport={{ amount: 0.2 }}>
+        <motion.div className=" sm:mt-4 p-4 md:p-20 flex flex-col justify-center space-y-4 max-w-[700px]" initial={{ opacity:0 }} whileInView={{ opacity: 1 }} transition={{ duration: 3, ease: "easeOut" }} viewport={{ amount: 0.2 }}>
           <h1 className="text-3xl md:text-4xl font-semibold text-white text-center md:text-left">What about <span className="text-yellow-300">me</span>?</h1>
           <p className="text-md md:text-lg font-light text-gray-300 text-center md:text-left">I&apos;m a Computer Science student at PUC-Rio with a merit scholarship. I have 1 year of experience in web development, mainly with Typescript, React, Node.js, and databases like MongoDB and PostgreSQL. I&apos;m also interested in blockchain development and always looking to learn more.</p>
           <div className="flex flex-wrap gap-8 justify-center md:justify-start">

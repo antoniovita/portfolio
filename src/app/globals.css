@@ -108,3 +108,11 @@ body {
     transform: translateX(0) translateY(0);
   }
 }
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
