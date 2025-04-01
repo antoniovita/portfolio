@@ -54,7 +54,10 @@ const Home = () => {
     "/images/git-plain-wordmark.png",
     "/images/github-original.png",
     "/images/docker-plain.png",
-    "/images/java.png"
+    "/images/java.png",
+    "/images/html5-plain.png",
+    "/images/spring-boot.webp",
+    "/images/react-original.png",
   ], []);
 
   useEffect(() => {
@@ -182,7 +185,7 @@ const Home = () => {
       <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 3, ease: "easeOut" }} viewport={{ amount: 0.2 }} className="px-4">
   <div className="flex flex-col justify-center items-center h-screen relative"> 
     <h1 className="text-3xl md:text-4xl z-30 mb-[5px] text-center bg-black rounded-full border border-gray-950 px-5 py-3"> What about my <span className="text-yellow-300"> stack </span> ?</h1>
-    <button onClick={() => setShowStack(true)} className="bg-black border border-yellow-400 text-yellow-400 rounded-full px-3 py-2 mt-5 font-normal hover:bg-yellow-400 hover:text-black all-transition duration-300"> View the list </button>
+    <button onClick={() => setShowStack(true)} className="bg-yellow-400 text-black rounded-full px-3 py-2 mt-5 font-normal hover:bg-yellow-900 hover:text-black all-transition duration-300"> View the list </button>
     <div className="absolute inset-0 floating-icons z-0">
       {icons.map((icon, index) => (
         <Image
@@ -212,13 +215,13 @@ const Home = () => {
           const techNames = [
             "CSS3", "Figma", "JavaScript", "Python", "TypeScript",
             "PostgreSQL", "React", "Node.js", "MongoDB", "MySQL",
-            "Git", "GitHub", "Docker", "Java"
+            "Git", "GitHub", "Docker", "Java", "HTML5", "Spring Boot", "React Native"
           ];
           
           return (
             <div key={index} className="bg-gray-950 px-4 py-2 rounded-full flex flex-row gap-3 items-center w-[90%]">
               <Image src={tech} alt={techNames[index]} width={50} height={50} className="w-6 h-6"/>
-              <h1>{techNames[index]}</h1>
+              <h1 className="font-normal">{techNames[index]}</h1>
             </div>
           );
         })}
@@ -251,13 +254,13 @@ const Home = () => {
     </p>
     <div className="flex flex-wrap gap-6 justify-center md:justify-start">
       <Link className="mt-6" href={"https://github.com/antoniovita"}>
-        <FontAwesomeIcon icon={faGithub} size="3x" />
+        <FontAwesomeIcon icon={faGithub} size="2x" />
       </Link>
       <Link className="mt-6" href={"https://linkedin.com/in/antonio-vita-6177922b7"}>
-        <FontAwesomeIcon icon={faLinkedin} size="3x" />
+        <FontAwesomeIcon icon={faLinkedin} size="2x" />
       </Link>
       <Link className="mt-6" href={""}>
-        <FontAwesomeIcon icon={fasEnvelope} size="3x" />
+        <FontAwesomeIcon icon={fasEnvelope} size="2x" />
       </Link>
     </div>
   </motion.div>
@@ -265,7 +268,7 @@ const Home = () => {
 
 
       <motion.div initial={{ opacity:0 }} whileInView={{ opacity: 1 }} transition={{ duration: 3, ease: "easeOut" }} viewport={{ amount: 0.2 }} className="h-screen justify-center flex flex-col items-center z-20 px-8">
-        <div className="bg-transparent flex flex-col items-center border border-gray-700 rounded-lg p-4 md:p-[45px] w-full sm:w-[90%] md:w-[70%] lg:w-[50%] xl:w-[40%]">
+        <div className="bg-transparent flex flex-col items-center border border-gray-950 rounded-lg p-4 md:p-[45px] w-full sm:w-[90%] md:w-[70%] lg:w-[50%] xl:w-[40%]">
           <h2 className="text-3xl md:text-4xl font-semibold mb-4 text-white text-center">Contact me!</h2>
           <form onSubmit={sendEmail} className="w-full">
             <div className="mb-4">
@@ -274,9 +277,10 @@ const Home = () => {
                 type="text"
                 name="name"
                 value={name}
+                placeholder="Your name..."
                 onChange={(e: ChangeEvent<HTMLInputElement>) => setName(e.target.value)}
                 required
-                className="mt-2 p-3 w-full border border-gray-600 rounded-md bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="mt-2 p-3 w-full font-normal rounded-2xl bg-gray-950 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
               />
             </div>
             <div className="mb-4">
@@ -285,15 +289,16 @@ const Home = () => {
                 type="email"
                 name="email"
                 value={email}
+                placeholder="Your email..."
                 onChange={(e: ChangeEvent<HTMLInputElement>) => setEmail(e.target.value)}
                 required
-                className="mt-2 p-3 w-full border border-gray-600 rounded-md bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="mt-2 p-3 w-full font-normal rounded-2xl bg-gray-950 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
               />
             </div>
             <div className="mb-4">
               <label className="block text-md text-gray-300">Message</label>
               <textarea
-                className="mt-2 p-3 w-full border border-gray-600 rounded-md bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="mt-2 scrollbar-hide p-3 h-[150px] w-full rounded-2xl font-normal bg-gray-950 text-white focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 placeholder="Your message..."
                 onChange={(e: ChangeEvent<HTMLTextAreaElement>) => setMessage(e.target.value)}
                 value={message}
@@ -301,7 +306,7 @@ const Home = () => {
             </div>
             <button
               type="submit"
-              className="w-full bg-gray-700 text-white p-3 rounded-md mt-4 hover:bg-gray-600 transition-all duration-300"
+              className="w-full bg-yellow-400 text-black p-3 rounded-2xl mt-4 hover:bg-yellow-900 transition-all duration-300"
             >
               Send
             </button>
