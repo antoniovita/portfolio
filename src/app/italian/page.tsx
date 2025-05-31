@@ -37,6 +37,46 @@ const Home = () => {
       });
   };
 
+const projects = [
+  {
+    id: 1,
+    title: 'IRSA: Radiologia per Immagini',
+    description: 'Progetto SPA realizzato con Next.js e TailwindCSS',
+    image: '/images/projects/irsa-site.png',
+    technologies: [
+      { name: 'Typescript', icon: '/images/typescript-plain.png', bg: 'bg-blue-500' },
+      { name: 'TailwindCSS', icon: '/images/tailwindcss-plain.png', bg: 'bg-teal-900' },
+      { name: 'Next.js', icon: '/images/nextjs-original.png', bg: 'bg-gray-800' },
+    ],
+  },
+  {
+    id: 2,
+    title: 'MyOrder – Menu digitale per Ristoranti',
+    description: 'Menu digitale interattivo per ristoranti, con interfaccia reattiva che consente ordini senza personale.',
+    image: '/images/projects/myorder.png',
+    technologies: [
+      { name: 'Typescript', icon: '/images/typescript-plain.png', bg: 'bg-blue-500' },
+      { name: 'TailwindCSS', icon: '/images/tailwindcss-plain.png', bg: 'bg-teal-900' },
+      { name: 'Node.js', icon: '/images/nodejs-original.png', bg: 'bg-green-800' },
+      { name: 'Next.js', icon: '/images/nextjs-original.png', bg: 'bg-gray-800' },
+    ],
+  },
+  {
+    id: 3,
+    title: 'Gymtracker - App di Gestione Allenamenti',
+    description: 'Applicazione mobile sviluppata per aiutarmi a monitorare e organizzare i miei allenamenti in palestra.',
+    image: '/images/projects/gymtracker.jpg',
+    technologies: [
+      { name: 'Typescript', icon: '/images/typescript-plain.png', bg: 'bg-blue-500' },
+      { name: 'React Native', icon: '/images/react-original.png', bg: 'bg-blue-900' },
+    ],
+  }
+];
+
+  const title = "Un po' del mio lavoro";
+
+
+
   const [icons, setIcons] = useState<{ src: string; top: number; left: number; animationDelay: string }[]>([]);
   const [hovered, setHovered] = useState(false);
 
@@ -237,7 +277,7 @@ const Home = () => {
 
       <motion.div initial={{ opacity:0 }} whileInView={{ opacity: 1 }} transition={{ duration:3, ease: "easeOut" }} viewport={{ amount: 0.2 }} className="px-4">
       <div className="flex flex-col justify-center items-center h-screen relative"> 
-        <MyWork></MyWork>
+        <MyWork title={title} projects={projects}></MyWork>
         </div>
       </motion.div>
 

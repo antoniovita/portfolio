@@ -4,60 +4,90 @@ import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import Image from 'next/image';
 
-const MyWork = () => {
+type Technology = {
+  name: string;
+  icon: string;
+  bg: string;
+};
+
+type Project = {
+  id: number;
+  title: string;
+  description: string;
+  image: string;
+  technologies: Technology[];
+};
+
+type MyWorkProps = {
+  title: string;
+  projects: Project[];
+};
+
+
+
+const MyWork = ({ title, projects }: MyWorkProps) => {
+
+  const titleWords = title.trim().split(' ');
+  const lastWord = titleWords.pop(); 
+  const restOfTitle = titleWords.join(' '); 
+
   return (
     <div className="w-full max-w-[90rem] mx-auto py-20">
       <h1 className="text-3xl md:text-4xl z-30 text-center">
-        A little of my <span className="text-yellow-400">work</span>
+        {restOfTitle}{' '}
+        <span className="text-yellow-500">{lastWord}</span>
       </h1>
 
       <Swiper
         grabCursor={true}
-        centeredSlides={false} 
+        centeredSlides={false}
         loop={true}
-        spaceBetween={20} 
+        spaceBetween={20}
         autoplay={{
           delay: 2500,
           disableOnInteraction: false,
         }}
         breakpoints={{
           320: { slidesPerView: 1 },
-          768: { slidesPerView: 2 }, 
-          1024: { slidesPerView: 3 }, 
+          768: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
         }}
         modules={[Autoplay, EffectCoverflow]}
         className="h-[550px]"
       >
-        {[1, 2, 3, 4, 5].map((num) => (
-          <SwiperSlide key={num} className="w-[400px]">
-            <div className="text-white flex items-center justify-center rounded-md text-xl h-full">
-              <div className="flex flex-col gap-4 bg-black p-3">
-                <Image
-                  alt="projects-images"
-                  width={800}
-                  height={800}
-                  src="/images/projects/irsa-site.png"
-                  className="rounded-lg"
-                />
+        {projects.map((project) => (
+          <SwiperSlide key={project.id} className="w-[400px]">
+            <div className="text-white flex items-start mt-[70px] justify-center rounded-md text-xl h-full">
+              <div className="flex flex-col gap-4 bg-black p-3 rounded-lg">
+                <div className="w-[450px] h-[245px] relative overflow-hidden rounded-lg">
+                  <Image
+                    alt="projects-images"
+                    src={project.image}
+                    layout="fill"
+                    objectFit="cover"
+                    className="rounded-lg"
+                  />
+                </div>
                 <div className="gap-2 flex flex-col">
-                  <h1 className="font-normal text-lg">IRSA: Radiologia por Imagem</h1>
-                  <p className="font-thin text-sm">
-                    Projeto de SPA feito com Next.js e TailwindCSS
-                  </p>
+                  <h1 className="font-normal text-lg">{project.title}</h1>
+                  <p className="font-thin text-sm">{project.description}</p>
                 </div>
                 <div className="flex flex-row flex-wrap gap-2">
-                  <div className="rounded-full bg-blue-500 px-3 py-1 flex items-center gap-2">
-                    <Image alt="typescript" width={18} height={13} src="/images/typescript-plain.png" />
-                    <h1 className="text-white font-extralight text-sm">Typescript</h1>
-                  </div>
-                  <div className="rounded-full bg-teal-900 px-3 py-1 flex items-center gap-2">
-                    <Image alt="tailwind" width={18} height={13} src="/images/tailwindcss-plain.png" />
-                    <h1 className="text-white font-extralight text-sm">TailwindCSS</h1>
-                  </div>
-                  <div className="rounded-full bg-gray-800 px-3 py-1 flex items-center gap-2">
-                    <Image alt="nextjs" width={18} height={13} src="/images/nextjs-original.png" />
-                    <h1 className="text-white font-extralight text-sm">Next.js</h1>
-                  </div>
+                  {project.technologies.map((tech, index) => (
+                    <div
+                      key={index}
+                      className={`rounded-full ${tech.bg} px-3 py-1 flex items-center gap-2`}
+                    >
+                      <Image
+                        alt={tech.name}
+                        width={18}
+                        height={13}
+                        src={tech.icon}
+                        className="grayscale"
+                      />
+                      <h1 className="text-white font-extralight text-sm">{tech.name}</h1>
+                    </div>
+                  ))}
                 </div>
               </div>
             </div>
