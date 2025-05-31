@@ -8,6 +8,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import emailjs from '@emailjs/browser';
 import MyWork from "@/components/mywork";
+import Timeline from "@/components/timeline";
 
 const Home = () => {
   const [email, setEmail] = useState('');
@@ -36,6 +37,39 @@ const Home = () => {
         console.log('Erro', err);
       });
   };
+
+  const timeline = [
+  {
+    year: '2017',
+    title: 'Primeiro contato com programação',
+    description: 'Tive minha primeira interação com programação usando a plataforma Scratch durante as aulas da escola.',
+  },
+  {
+    year: '2019',
+    title: 'Início com Python',
+    description: 'Comecei a aprender Python também nas aulas da escola, explorando lógica e automação básica.',
+  },
+  {
+    year: '2020',
+    title: 'Explorando JavaScript e primeiros projetos pessoais',
+    description: 'Saí do ambiente escolar e comecei a aprender JavaScript por conta própria. Desenvolvi bots para Discord e criei meus primeiros sites.',
+  },
+  {
+    year: '2023',
+    title: 'Retorno ao desenvolvimento web',
+    description: 'Após um tempo com menos contato com programação, retomei o foco em projetos web, principalmente com React.',
+  },
+  {
+    year: '2024',
+    title: 'Último ano do ensino médio e aprofundamento',
+    description: 'Durante o 3º ano do ensino médio, após o fim das provas, voltei a estudar intensamente. Aprofundei meus conhecimentos em desenvolvimento web e comecei a aprender Java.',
+  },
+  {
+    year: '2025',
+    title: 'Início da faculdade de Ciência da Computação',
+    description: 'Comecei a graduação já com uma base sólida, focando em desenvolvimento full-stack e iniciando minha jornada na área de dados com PyTorch e inteligência artificial.',
+  },
+];
 
   const title: string = "Um pouco do meu trabalho";
 
@@ -220,6 +254,8 @@ const Home = () => {
             </a>
         </motion.div>
       </div>
+
+      <Timeline timeline={timeline}  />
 
       <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 3, ease: "easeOut" }} viewport={{ amount: 0.2 }} className="px-4">
   <div className="flex flex-col justify-center items-center h-screen relative"> 

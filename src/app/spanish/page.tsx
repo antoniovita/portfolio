@@ -8,6 +8,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import emailjs from '@emailjs/browser';
 import MyWork from "@/components/mywork";
+import Timeline from "@/components/timeline";
 
 const Home = () => {
   const [email, setEmail] = useState('');
@@ -74,6 +75,41 @@ const Home = () => {
     ],
   }
 ];
+
+
+const timeline = [
+  {
+    year: '2017',
+    title: 'Primer contacto con la programación',
+    description: 'Tuve mi primera experiencia con la programación usando la plataforma Scratch durante las clases en la escuela.',
+  },
+  {
+    year: '2019',
+    title: 'Inicio con Python',
+    description: 'También comencé a aprender Python en la escuela, explorando lógica y automatización básica.',
+  },
+  {
+    year: '2020',
+    title: 'Explorando JavaScript y primeros proyectos personales',
+    description: 'Salí del entorno escolar y empecé a aprender JavaScript por mi cuenta. Desarrollé bots para Discord y creé mis primeros sitios web.',
+  },
+  {
+    year: '2023',
+    title: 'Regreso al desarrollo web',
+    description: 'Después de un tiempo con menos contacto con la programación, retomé los proyectos web, principalmente usando React.',
+  },
+  {
+    year: '2024',
+    title: 'Último año de secundaria y profundización',
+    description: 'Durante el último año de secundaria, después de los exámenes, volví a estudiar intensamente. Profundicé mis conocimientos en desarrollo web y comencé a aprender Java.',
+  },
+  {
+    year: '2025',
+    title: 'Inicio de la carrera en Ciencias de la Computación',
+    description: 'Comencé la universidad con una base sólida, enfocándome en desarrollo full-stack e iniciando mi camino en datos e inteligencia artificial con PyTorch.',
+  },
+];
+
 
 
   const [icons, setIcons] = useState<{ src: string; top: number; left: number; animationDelay: string }[]>([]);
@@ -221,6 +257,9 @@ const Home = () => {
         </motion.div>
       </div>
 
+      <Timeline timeline={timeline}  />
+
+
       <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 3, ease: "easeOut" }} viewport={{ amount: 0.2 }} className="px-4">
   <div className="flex flex-col justify-center items-center h-screen relative"> 
     <h1 className="text-3xl md:text-4xl z-30 mb-[5px] text-center bg-black rounded-full border border-gray-950 px-5 py-3"> ¿ Cual es mi <span className="text-yellow-300"> stack </span> ?</h1>
@@ -279,6 +318,8 @@ const Home = () => {
         <MyWork title={title} projects={projects}></MyWork>
         </div>
       </motion.div>
+
+      
 
       <div id="about" className="flex flex-col xl:flex-row sm:flex-col items-center justify-center gap-6 md:gap-20 z-30 sm:h-auto md:h-screen px-6 sm:px-8 md:px-20">
   <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 3, ease: "easeOut" }} viewport={{ amount: 0.2 }}>

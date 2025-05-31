@@ -8,6 +8,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import emailjs from '@emailjs/browser';
 import MyWork from "@/components/mywork";
+import Timeline from "@/components/timeline";
 
 const Home = () => {
   const [email, setEmail] = useState('');
@@ -74,6 +75,40 @@ const projects = [
 ];
 
   const title = "Un po' del mio lavoro";
+
+  const timeline = [
+  {
+    year: '2017',
+    title: 'Primo contatto con la programmazione',
+    description: 'Ho avuto la mia prima esperienza con la programmazione usando la piattaforma Scratch durante le lezioni scolastiche.',
+  },
+  {
+    year: '2019',
+    title: 'Inizio con Python',
+    description: 'Ho iniziato a imparare Python a scuola, esplorando logica e automazione di base.',
+  },
+  {
+    year: '2020',
+    title: 'Esplorazione di JavaScript e primi progetti personali',
+    description: 'Ho iniziato a imparare JavaScript da autodidatta. Ho creato bot per Discord e realizzato i miei primi siti web.',
+  },
+  {
+    year: '2023',
+    title: 'Ritorno allo sviluppo web',
+    description: 'Dopo un periodo con poco contatto con la programmazione, ho ripreso a lavorare su progetti web, principalmente con React.',
+  },
+  {
+    year: '2024',
+    title: 'Ultimo anno di liceo e approfondimento',
+    description: 'Durante l’ultimo anno di liceo, dopo gli esami, ho ripreso a studiare seriamente. Ho approfondito le mie competenze nel web e ho iniziato a imparare Java.',
+  },
+  {
+    year: '2025',
+    title: 'Inizio della laurea in Informatica',
+    description: 'Ho iniziato l’università con una buona base, concentrandomi sullo sviluppo full-stack e iniziando il mio percorso nei dati e nell’intelligenza artificiale con PyTorch.',
+  },
+];
+
 
 
 
@@ -221,6 +256,9 @@ const projects = [
             </a>
         </motion.div>
       </div>
+
+      <Timeline timeline={timeline}  />
+      
 
       <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 3, ease: "easeOut" }} viewport={{ amount: 0.2 }} className="px-4">
   <div className="flex flex-col justify-center items-center h-screen relative"> 

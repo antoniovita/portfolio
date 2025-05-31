@@ -8,6 +8,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import emailjs from '@emailjs/browser';
 import MyWork from "@/components/mywork";
+import Timeline from "@/components/timeline";
 
 const Home = () => {
   const [email, setEmail] = useState('');
@@ -75,6 +76,40 @@ const Home = () => {
     ],
   }
 ];
+
+const timeline = [
+  {
+    year: '2017',
+    title: 'Premier contact avec la programmation',
+    description: 'J\'ai eu ma première expérience en programmation avec la plateforme Scratch pendant les cours à l\'école.',
+  },
+  {
+    year: '2019',
+    title: 'Début avec Python',
+    description: 'J\'ai également commencé à apprendre Python à l\'école, en explorant la logique et l\'automatisation de base.',
+  },
+  {
+    year: '2020',
+    title: 'Exploration de JavaScript et premiers projets personnels',
+    description: 'Je suis sorti du cadre scolaire et j\'ai commencé à apprendre JavaScript par moi-même. J\'ai développé des bots pour Discord et créé mes premiers sites web.',
+  },
+  {
+    year: '2023',
+    title: 'Retour au développement web',
+    description: 'Après une période d\'éloignement de la programmation, j\'ai repris des projets web, principalement avec React.',
+  },
+  {
+    year: '2024',
+    title: 'Dernière année de lycée et approfondissement',
+    description: 'Pendant ma dernière année de lycée, après les examens, j\'ai repris les études sérieusement. J\'ai approfondi mes compétences en développement web et commencé à apprendre Java.',
+  },
+  {
+    year: '2025',
+    title: 'Début des études en informatique',
+    description: 'J\'ai commencé l\'université avec de bonnes bases, en me spécialisant dans le développement full-stack et en découvrant les données et l\'IA avec PyTorch.',
+  },
+];
+
 
 
   const [icons, setIcons] = useState<{ src: string; top: number; left: number; animationDelay: string }[]>([]);
@@ -222,6 +257,9 @@ const Home = () => {
             </a>
         </motion.div>
       </div>
+
+     <Timeline timeline={timeline}  />
+      
 
       <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 3, ease: "easeOut" }} viewport={{ amount: 0.2 }} className="px-4">
   <div className="flex flex-col justify-center items-center h-screen relative"> 

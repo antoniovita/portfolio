@@ -8,6 +8,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import emailjs from '@emailjs/browser';
 import MyWork from "@/components/mywork";
+import Timeline from "@/components/timeline";
 
 const Home = () => {
   const [email, setEmail] = useState('');
@@ -36,6 +37,40 @@ const Home = () => {
         console.log('Erro', err);
       });
   };
+
+const timeline = [
+  {
+    year: '2017',
+    title: 'First contact with programming',
+    description: 'I had my first experience with programming using the Scratch platform during school classes.',
+  },
+  {
+    year: '2019',
+    title: 'Starting with Python',
+    description: 'I also started learning Python at school, exploring logic and basic automation.',
+  },
+  {
+    year: '2020',
+    title: 'Exploring JavaScript and first personal projects',
+    description: 'I moved beyond school and started learning JavaScript on my own. I developed Discord bots and built my first websites.',
+  },
+  {
+    year: '2023',
+    title: 'Returning to web development',
+    description: 'After some time with less coding activity, I refocused on web projects, especially using React.',
+  },
+  {
+    year: '2024',
+    title: 'Senior year of high school and deepening knowledge',
+    description: 'During the last year of high school, after finishing exams, I resumed studying intensely. I deepened my web development skills and started learning Java.',
+  },
+  {
+    year: '2025',
+    title: 'Starting Computer Science degree',
+    description: 'I began university with a strong foundation, focusing on full-stack development and starting my journey into data and AI using PyTorch.',
+  },
+];
+
 
   const title = "A little of my work";
 
@@ -220,6 +255,10 @@ const Home = () => {
             </a>
         </motion.div>
       </div>
+
+      <Timeline timeline={timeline} />
+
+
 
       <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} transition={{ duration: 3, ease: "easeOut" }} viewport={{ amount: 0.2 }} className="px-4">
   <div className="flex flex-col justify-center items-center h-screen relative"> 
