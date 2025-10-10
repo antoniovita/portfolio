@@ -91,7 +91,7 @@ export default function AboutSection({ t }: { t: any }) {
               compact={true}
             />
             <SocialLink 
-              href="#instagram" 
+              href="https://www.instagram.com/antoniovita.dev/" 
               label="Instagram" 
               icon={faInstagram}
               compact={true}

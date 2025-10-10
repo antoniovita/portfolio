@@ -61,11 +61,11 @@ export const messages = {
     projects: {
       title: "Um pouco do meu trabalho",
       items: [
-        { title: 'IRSA: Radiologia de Imagens Médicas', description: 'Projeto SPA construído com Next.js e TailwindCSS' },
-        { title: 'MyOrder – Cardápio Digital para Restaurantes', description: 'Cardápio digital interativo com interface responsiva para pedidos sem atendimento humano.' },
-        { title: 'Gymtracker - App de Gerenciamento de Treinos', description: 'Aplicativo móvel para rastrear e organizar meus treinos na academia.' },
-        { title: 'Esse portfolio aqui', description: 'Portfolio feito inteiramente em Next.js com TailwindCSS.' },
-        { title: 'Dayo - Gerenciamento de rotina com IA', description: 'Aplicativo em Expo utilizando o llama.rn com o modelo de encoding TinyLLM.' },
+        { title: 'IRSA: Radiologia de Imagens Médicas', description: 'Projeto SPA construído com Next.js e TailwindCSS', github: "https://github.com/antoniovita/irsa" },
+        { title: 'MyOrder – Cardápio Digital para Restaurantes', description: 'Cardápio digital interativo com interface responsiva para pedidos sem atendimento humano.', github: "https://github.com/antoniovita/myorder" },
+        { title: 'Gymtracker - App de Gerenciamento de Treinos', description: 'Aplicativo móvel para rastrear e organizar meus treinos na academia.', github: "https://github.com/antoniovita/gymtracker" },
+        { title: 'Esse portfolio aqui', description: 'Portfolio feito inteiramente em Next.js com TailwindCSS.', github: "https://github.com/antoniovita/portfolio" },
+        { title: 'Dayo - Gerenciamento de rotina com IA', description: 'Aplicativo em Expo utilizando o llama.rn com o modelo de encoding TinyLLM.', github: "https://github.com/antoniovita/dayo" },
       ]
     },
     about: {
@@ -117,11 +117,11 @@ export const messages = {
     projects: {
       title: "Some of my work",
       items: [
-        { title: 'IRSA: Medical Imaging Radiology', description: 'SPA project built with Next.js and TailwindCSS' },
-        { title: 'MyOrder – Digital Menu for Restaurants', description: 'Interactive menu with responsive UI for human-free ordering.' },
-        { title: 'Gymtracker - Workout Management App', description: 'Mobile app to track and organize my gym workouts.' },
-        { title: 'This portfolio', description: 'Portfolio fully built with Next.js and TailwindCSS.' },
-        { title: 'Dayo - AI-powered Routine Management', description: 'Expo app using llama.rn with TinyLLM encoding model.' },
+        { title: 'IRSA: Medical Imaging Radiology', description: 'SPA project built with Next.js and TailwindCSS', github: "https://github.com/antoniovita/irsa" },
+        { title: 'MyOrder – Digital Menu for Restaurants', description: 'Interactive menu with responsive UI for human-free ordering.', github: "https://github.com/antoniovita/myorder" },
+        { title: 'Gymtracker - Workout Management App', description: 'Mobile app to track and organize my gym workouts.', github: "https://github.com/antoniovita/gymtracker" },
+        { title: 'This portfolio', description: 'Portfolio fully built with Next.js and TailwindCSS.', github: "https://github.com/antoniovita/portfolio" },
+        { title: 'Dayo - AI-powered Routine Management', description: 'Expo app using llama.rn with TinyLLM encoding model.', github: "https://github.com/antoniovita/dayo" },
       ]
     },
     about: {
@@ -163,11 +163,11 @@ export const messages = {
     projects: {
       title: "Un poco de mi trabajo",
       items: [
-        { title: 'IRSA: Radiología de Imágenes Médicas', description: 'Proyecto SPA con Next.js y TailwindCSS' },
-        { title: 'MyOrder – Menú Digital para Restaurantes', description: 'Menú digital interactivo para pedidos automáticos.' },
-        { title: 'Gymtracker - App de Gestión de Entrenamientos', description: 'App móvil para registrar y organizar mis entrenamientos.' },
-        { title: 'Este portafolio', description: 'Portafolio creado con Next.js y TailwindCSS.' },
-        { title: 'Dayo - Gestión de Rutina con IA', description: 'App Expo usando llama.rn y el modelo TinyLLM.' },
+        { title: 'IRSA: Radiología de Imágenes Médicas', description: 'Proyecto SPA con Next.js y TailwindCSS', github: "https://github.com/antoniovita/irsa"},
+        { title: 'MyOrder – Menú Digital para Restaurantes', description: 'Menú digital interactivo para pedidos automáticos.', github: "https://github.com/antoniovita/myorder" },
+        { title: 'Gymtracker - App de Gestión de Entrenamientos', description: 'App móvil para registrar y organizar mis entrenamientos.', github: "https://github.com/antoniovita/gymtracker" },
+        { title: 'Este portafolio', description: 'Portafolio creado con Next.js y TailwindCSS.', github: "https://github.com/antoniovita/portfolio"},
+        { title: 'Dayo - Gestión de Rutina con IA', description: 'App Expo usando llama.rn y el modelo TinyLLM.', github: "https://github.com/antoniovita/dayo"},
       ]
     },
     about: {
@@ -209,11 +209,11 @@ export const messages = {
     projects: {
       title: "Un po' del mio lavoro",
       items: [
-        { title: 'IRSA: Radiologia delle Immagini Mediche', description: 'Progetto SPA con Next.js e TailwindCSS' },
-        { title: 'MyOrder – Menu Digitale per Ristoranti', description: 'Menu interattivo per ordinazioni automatiche.' },
-        { title: 'Gymtracker - App di Gestione Allenamenti', description: 'App per gestire e monitorare allenamenti in palestra.' },
-        { title: 'Questo portfolio', description: 'Portfolio realizzato con Next.js e TailwindCSS.' },
-        { title: 'Dayo - Gestione Routine con IA', description: 'App Expo con llama.rn e modello TinyLLM.' },
+        { title: 'IRSA: Radiologia delle Immagini Mediche', description: 'Progetto SPA con Next.js e TailwindCSS', github: "https://github.com/antoniovita/irsa" },
+        { title: 'MyOrder – Menu Digitale per Ristoranti', description: 'Menu interattivo per ordinazioni automatiche.', github: "https://github.com/antoniovita/myorder" },
+        { title: 'Gymtracker - App di Gestione Allenamenti', description: 'App per gestire e monitorare allenamenti in palestra.', github: "https://github.com/antoniovita/gymtracker" },
+        { title: 'Questo portfolio', description: 'Portfolio realizzato con Next.js e TailwindCSS.', github: "https://github.com/antoniovita/portfolio" },
+        { title: 'Dayo - Gestione Routine con IA', description: 'App Expo con llama.rn e modello TinyLLM.', github: "https://github.com/antoniovita/dayo" },
       ]
     },
     about: {
@@ -255,11 +255,11 @@ export const messages = {
     projects: {
       title: "Quelques-uns de mes travaux",
       items: [
-        { title: 'IRSA : Radiologie d’Images Médicales', description: 'Projet SPA avec Next.js et TailwindCSS' },
-        { title: 'MyOrder – Menu Digital pour Restaurants', description: 'Menu numérique interactif pour commandes automatiques.' },
-        { title: 'Gymtracker - Application d’Entraînement', description: 'Application mobile pour suivre mes séances de sport.' },
-        { title: 'Ce portfolio', description: 'Portfolio réalisé avec Next.js et TailwindCSS.' },
-        { title: 'Dayo - Gestion de routine avec IA', description: 'Application Expo utilisant llama.rn et TinyLLM.' },
+        { title: 'IRSA : Radiologie d’Images Médicales', description: 'Projet SPA avec Next.js et TailwindCSS', github: "https://github.com/antoniovita/irsa" },
+        { title: 'MyOrder – Menu Digital pour Restaurants', description: 'Menu numérique interactif pour commandes automatiques.', github: "https://github.com/antoniovita/myorder" },
+        { title: 'Gymtracker - Application d’Entraînement', description: 'Application mobile pour suivre mes séances de sport.', github: "https://github.com/antoniovita/gymtracker" },
+        { title: 'Ce portfolio', description: 'Portfolio réalisé avec Next.js et TailwindCSS.', github: "https://github.com/antoniovita/portfolio" },
+        { title: 'Dayo - Gestion de routine avec IA', description: 'Application Expo utilisant llama.rn et TinyLLM.', github: "https://github.com/antoniovita/dayo" },
       ]
     },
     about: {
